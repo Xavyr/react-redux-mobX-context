@@ -21,7 +21,6 @@ export function getNasaDataAction() {
       nasaStore.explanation = jsonResponse.explanation;
       nasaStore.image = jsonResponse.hdurl;
 
-      console.log('new store', nasaStore);
       return nasaStore;
     });
 };

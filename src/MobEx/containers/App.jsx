@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
 import NasaAjaxButton from '../components/NasaAjaxButton.jsx';
 import NasaImageContainer from '../containers/NasaImageContainer.jsx';
@@ -15,7 +16,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-	  console.log('current store', nasaStore);
+
   }
 
   render() {

@@ -21,22 +21,6 @@ class Store {
   @computed currentFlag() {
     return this.showFlag;
   }
-
-  // @action currentFlag() {
-  //   if(this.title) {
-  //     return this.showFlag;
-  //   }
-  // }
-//
-// @computed get title() {
-//     return this.nasaState.title;
-//   }
-//
-//   @action
-//   fillWithData(allData) {
-//     this.nasaState.title = allData;
-//     return this.nasaState;
-//   }
 }
 
 let nasaStore = new Store();
