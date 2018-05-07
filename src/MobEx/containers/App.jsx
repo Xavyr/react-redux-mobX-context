@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-
 import NasaAjaxButton from '../components/NasaAjaxButton.jsx';
 import NasaImageContainer from '../containers/NasaImageContainer.jsx';
 import NasaDataContainer from '../containers/NasaDataContainer.jsx';
+import nasaStore from '../store.js';
 
-import { getNasaDataAction } from '../actions.js';
+
+import { getNasaDataAction, showNasaDataAction } from '../actions.js';
 
 
 class App extends Component {
@@ -13,18 +14,20 @@ class App extends Component {
 		super();
 	}
 
+	componentDidMount() {
+	  console.log('current store', nasaStore);
+  }
+
   render() {
     return (
 	    <div>
 		    <NasaAjaxButton
           getNasaDataAction = {getNasaDataAction}
 		    />
-        <NasaImageContainer
-          //imageUrl = {this.props.nasaData.image}
-        />
+        <NasaImageContainer image={nasaStore.image}/>
         <NasaDataContainer
-          //nasaData = {this.props.nasaData}
-          //showNasaDataAction = {this.props.showNasaDataAction}
+          nasaData = {nasaStore}
+          showNasaDataAction = {showNasaDataAction}
         />
 	    </div>
     );

@@ -1,16 +1,19 @@
 import React, { Component} from 'react';
 import NasaDataPresentation from '../components/NasaDataPresentation.jsx';
+import nasaStore from '../store.js';
+import { observer } from 'mobx-react';
 
-class NasaDataContainer extends Component {
+
+@observer class NasaDataContainer extends Component {
   constructor(props) {
     super(props);
   }
 
   renderingLogic () {
-    return 1 ? (
-      <NasaDataPresentation />
+    return nasaStore.showFlag && nasaStore.title ? (
+      <NasaDataPresentation title={nasaStore.title} date={nasaStore.date} explanation={nasaStore.explanation} />
     ) : (
-      <button onClick={console.log('clicked')}>Click Button To Fire Sync Action and See Nasa Data in State</button>
+      <button onClick={this.props.showNasaDataAction}>Click Button To Fire Sync Action and See Nasa Data in State</button>
     );
   }
 

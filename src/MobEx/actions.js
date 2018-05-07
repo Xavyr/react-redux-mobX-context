@@ -8,18 +8,26 @@
 
 //actions get imported into containers, along with the stores they will be mutating directly.
 
-import NasaStore from './store.js'
+import nasaStore from './store.js'
 
 export function getNasaDataAction() {
-  console.log('hit the nasa data action');
   const fetchedPromise = fetch('https://api.nasa.gov/planetary/apod?api_key=rowvLMkZM9WZWKIK2ApDXcQOqMTf9lYIULFn8nrr')
     .then(function(response) {
       return response.json();
     })
     .then(function(jsonResponse) {
-      console.log(jsonResponse);
-     // NasaStore.
-      return jsonResponse;
+      nasaStore.title = jsonResponse.title;
+      nasaStore.date = jsonResponse.date;
+      nasaStore.explanation = jsonResponse.explanation;
+      nasaStore.image = jsonResponse.hdurl;
+
+      console.log('new store', nasaStore);
+      return nasaStore;
     });
 };
+
+export function showNasaDataAction() {
+  nasaStore.showFlag = true;
+  return nasaStore;
+}
 

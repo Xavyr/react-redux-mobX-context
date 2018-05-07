@@ -1,12 +1,12 @@
 import { observable, computed, action } from "mobx";
 
-export default class NasaStore {
+class Store {
   @observable title;
   @observable copyright;
   @observable date;
   @observable explanation;
   @observable image;
-  @observable showflag;
+  @observable showFlag;
 
   constructor() {
     this.title = null,
@@ -17,14 +17,28 @@ export default class NasaStore {
     this.showFlag = false
   }
 
-  @computed
-  get changeShowFlag() {
-    return this.nasaState.showFlag;
+
+  @computed currentFlag() {
+    return this.showFlag;
   }
 
-  @action
-  fillWithData(allData) {
-    this.nasaState.title = "FUCK YEAH"
-    return this.nasaState;
-  }
+  // @action currentFlag() {
+  //   if(this.title) {
+  //     return this.showFlag;
+  //   }
+  // }
+//
+// @computed get title() {
+//     return this.nasaState.title;
+//   }
+//
+//   @action
+//   fillWithData(allData) {
+//     this.nasaState.title = allData;
+//     return this.nasaState;
+//   }
 }
+
+let nasaStore = new Store();
+
+export default nasaStore;

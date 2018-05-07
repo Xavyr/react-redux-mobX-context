@@ -1,10 +1,10 @@
 import React from 'react';
 
-const NasaDataPresentation = props => (
+const NasaDataPresentation = (props) => (
   <div>
-    <h1>title</h1>
-    <h6>date</h6>
-    <p>explanation</p>
+    <h1>{props.title}</h1>
+    <h6>{props.date}</h6>
+    <p>{props.explanation}</p>
   </div>
 );
 
