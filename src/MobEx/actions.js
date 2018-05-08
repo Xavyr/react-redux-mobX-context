@@ -26,7 +26,9 @@ export function getNasaDataAction() {
 };
 
 export function showNasaDataAction() {
-  nasaStore.showFlag = true;
+  if(nasaStore.title) {
+    nasaStore.showFlag = true;
+  }
   return nasaStore;
 }
 

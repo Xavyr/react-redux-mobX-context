@@ -17,10 +17,6 @@ class Store {
     this.showFlag = false
   }
 
-
-  @computed currentFlag() {
-    return this.showFlag;
-  }
 }
 
 let nasaStore = new Store();

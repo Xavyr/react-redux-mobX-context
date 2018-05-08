@@ -7,7 +7,7 @@ module.exports = {
 
   //entry: ['babel-polyfill', './src/redux/index.js'],
   entry: ['babel-polyfill', './src/MobEx/index.js'],
-  //entry: ['babel-polyfill', './src/context/index.js'],
+  //entry: ['babel-polyfill', './src/ReactContextApi/index.js'],
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -22,6 +22,13 @@ module.exports = {
       {
         test: /.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ],
+    loaders: [
+      {
+        query: {
+          presets: ['react', 'es2015', "stage-0"]
+        }
       }
     ]
   },
