@@ -11,7 +11,7 @@ import * as types from '../constants/actionTypes.js'
 //the nasa data. This fulfilled promise result is dispatched to the reducer after being passed to the payLoadForReducerFunction to be
 //organized into the standard object with type and payload (newNasaData).
 export const getNasaDataAction = () => {
-  return function asyncAction(dispatch) {
+  return dispatch => {
     const fetchedPromise = fetch('https://api.nasa.gov/planetary/apod?api_key=rowvLMkZM9WZWKIK2ApDXcQOqMTf9lYIULFn8nrr')
       .then(function(response) {
         return response.json();

@@ -1,6 +1,6 @@
 import React from 'react';
 import NasaDataPresentation from '../components/NasaDataPresentation.jsx';
-
+import StateContext from '../state.js';
 
 
 class NasaDataContainer extends React.Component {
@@ -9,20 +9,18 @@ class NasaDataContainer extends React.Component {
     super(props);
   }
 
-  renderingLogic () {
-    return this.props.nasaData.showFlag && this.props.nasaData.title ? (
-      <NasaDataPresentation title={this.props.nasaData.title} date={this.props.nasaData.date} explanation={this.props.nasaData.explanation} />
-    ) : (
-      <button onClick={this.props.showNasaDataAction}>Click Button To Fire Sync Action and See Nasa Data in State</button>
-    );
-  }
-
   render() {
-    const nasaData = this.renderingLogic();
+    console.log(StateContext.consumer);
     return (
-      <div>
-        {nasaData}
-      </div>
+      <StateContext.Consumer>
+        {state =>
+          <div>
+            <h1>{state.nasaData.title}</h1>
+            <h1>{state.nasaData.date}</h1>
+            <h1>{state.nasaData.explanation}</h1>
+          </div>
+        }
+      </StateContext.Consumer>
     )
   }
 }

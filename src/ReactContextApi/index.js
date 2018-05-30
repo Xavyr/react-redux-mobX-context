@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App.jsx';
+import ContextualizedApp from './containers/App.jsx';
 
-
-ReactDOM.render(<App/>, document.getElementById('root'));
+console.log(ContextualizedApp);
+ReactDOM.render(<ContextualizedApp/>, document.getElementById('root'));
